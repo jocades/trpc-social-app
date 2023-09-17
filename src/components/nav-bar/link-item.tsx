@@ -10,7 +10,7 @@ interface LinkItemProps {
   item: NavItem
 }
 
-const LinkItem = ({ item }: LinkItemProps) => {
+export function LinkItem({ item }: LinkItemProps) {
   const path = usePathname()
   const active = path === item.href
 
@@ -28,5 +28,3 @@ const LinkItem = ({ item }: LinkItemProps) => {
     </Link>
   )
 }
-
-export default LinkItem

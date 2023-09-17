@@ -5,6 +5,7 @@ import { auth } from '@/server/auth'
 
 import { SignOutButton } from './signout-btn'
 import { WhoAmI } from './whoami'
+import { WhoAmIWithTRPC } from './whoami-trpc'
 
 export default async function PrivatePage() {
   async function whoAmI() {
@@ -25,6 +26,7 @@ export default async function PrivatePage() {
         <h1 className="text-4xl">User Page</h1>
         <WhoAmI action={whoAmI} />
         <SignOutButton />
+        <WhoAmIWithTRPC />
       </section>
     </>
   )

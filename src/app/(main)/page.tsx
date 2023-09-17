@@ -1,12 +1,10 @@
 import { Metadata } from 'next'
 
-import { NavBar } from '@/components/nav-bar'
-
 export const metadata: Metadata = {
   title: 'Home',
 }
 
-const Home = () => {
+export default function Home() {
   return (
     <section className="container mx-auto pt-8">
       <h1 className="text-6xl font-extrabold leading-tight tracking-tighter">
@@ -15,5 +13,3 @@ const Home = () => {
     </section>
   )
 }
-
-export default Home

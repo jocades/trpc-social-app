@@ -5,13 +5,13 @@ import { siteConfig } from '@/config/site'
 import { cn, size } from '@/lib/utils'
 import { Icons } from '@/components/icons'
 
-import LinkItem from './link-item'
+import { LinkItem } from './link-item'
 
 interface MainNavProps {
   items?: NavItem[]
 }
 
-export const MainNav = ({ items }: MainNavProps) => {
+export function MainNav({ items }: MainNavProps) {
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="hidden items-center space-x-2 md:flex">

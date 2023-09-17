@@ -1,6 +1,6 @@
 import { NodeEnv } from '@/config/consts'
 
-export const TailwindIndicator = () => {
+export function TailwindIndicator() {
   if (process.env.NODE_ENV === NodeEnv.PROD) return null
 
   return (

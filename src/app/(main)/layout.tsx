@@ -4,7 +4,7 @@ interface MainLayoutProps {
   children: React.ReactNode
 }
 
-const MainLayout = ({ children }: MainLayoutProps) => {
+export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="relative flex flex-col min-h-screen">
       <NavBar />
@@ -12,5 +12,3 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     </div>
   )
 }
-
-export default MainLayout

@@ -1,6 +1,11 @@
-import { type AppRouter } from '@/server/api'
-import { createTRPCReact, httpBatchLink, loggerLink } from '@trpc/react-query'
+import {
+  createTRPCReact,
+  unstable_httpBatchStreamLink as httpBatchStreamLink,
+  loggerLink,
+} from '@trpc/react-query'
 import superjson from 'superjson'
+
+import { type AppRouter } from '@/server/api'
 
 export const api = createTRPCReact<AppRouter>({})
 
@@ -15,13 +20,15 @@ export function createTRPCClient() {
     transformer: superjson,
     links: [
       loggerLink({
-        enabled: (opts) => (
+        enabled: (opts) =>
           process.env.NODE_ENV === 'development' ||
-          (opts.direction === 'down' && opts.result instanceof Error)
-        ),
+          (opts.direction === 'down' && opts.result instanceof Error),
       }),
-      httpBatchLink({
+      httpBatchStreamLink({
         url: getBaseUrl() + '/api/trpc',
+        headers: {
+          'x-trpc-source': 'web',
+        },
       }),
     ],
   })
