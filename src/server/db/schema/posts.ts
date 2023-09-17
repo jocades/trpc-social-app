@@ -10,7 +10,7 @@ export const posts = sqliteTable('post', {
   createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
 })
 
-export const postsRelations = relations(posts, ({ one, many }) => ({
+export const postRelations = relations(posts, ({ one, many }) => ({
   author: one(users, {
     fields: [posts.authorId],
     references: [users.id],
@@ -29,7 +29,7 @@ export const comments = sqliteTable('comment', {
   createdAt: integer('created_at', { mode: 'timestamp' }).notNull(),
 })
 
-export const commentsRelations = relations(comments, ({ one }) => ({
+export const commentRelations = relations(comments, ({ one }) => ({
   author: one(users, {
     fields: [comments.authorId],
     references: [users.id],
