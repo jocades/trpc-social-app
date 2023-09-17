@@ -18,14 +18,6 @@ export const Icons = {
   twitter: Twitter,
   linkedin: Linkedin,
   spinner: Loader2,
-  logo: (props: LucideProps) => (
-    <svg viewBox="0 0 94 133" {...props}>
-      <path
-        d="M48.5 13L70.5 0L93.5 13V97.5L67.5 110V80.5L45 94V120.5L19 133V47.5L0 36L22 23L45 36V68.5L67.5 56V24.5L48.5 13Z"
-        fill="currentColor"
-      />
-    </svg>
-  ),
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path

@@ -1,13 +1,15 @@
 import '@/styles/globals.css'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from '@/contexts/theme'
 
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
+import { ThemeProvider } from '@/contexts/theme'
 import { Toaster } from '@/components/ui/toaster'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
+
+import { TRPCProvider } from './_trpc/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,7 +32,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         className={cn('bg-background font-sans antialiased', inter.className)}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <TooltipProvider>{children}</TooltipProvider>
+          <TooltipProvider>
+            <TRPCProvider>{children}</TRPCProvider>
+          </TooltipProvider>
           <Toaster />
           <TailwindIndicator />
         </ThemeProvider>

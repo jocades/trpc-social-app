@@ -8,9 +8,13 @@ export const siteConfig = {
       title: 'Home',
       href: '/',
     },
+    {
+      title: 'User',
+      href: '/user',
+    },
   ],
   links: {
-    portfolio: 'https://jordicalafat.vercel.app',
-    github: 'https://github.com/j0rdiC',
+    portfolio: 'https://jocades.dev',
+    github: 'https://github.com/jocades',
   },
 }

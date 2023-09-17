@@ -28,8 +28,6 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
 const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(5, 'Password must be at least 5 characters'),
-  // firstName: z.string().min(2, 'First name must be at least 2 characters'),
-  // lastName: z.string().min(2, 'Last name must be at least 2 characters'),
 })
 
 const UserAuthForm = ({
@@ -43,8 +41,6 @@ const UserAuthForm = ({
     defaultValues: {
       email: '',
       password: '',
-      /*       firstName: '',
-      lastName: '', */
     },
     resolver: zodResolver(formSchema),
   })
