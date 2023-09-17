@@ -1,15 +1,23 @@
 import { Metadata } from 'next'
+import { redirect } from 'next/navigation'
+
+import { PostForm } from '@/components/forms/post-form'
+import { auth } from '@/server/auth'
 
 export const metadata: Metadata = {
   title: 'Home',
 }
 
-export default function Home() {
+export default async function Home() {
+  const session = await auth()
+
+  if (!session?.user) {
+    redirect('/sign-in?next=/')
+  }
+
   return (
     <section className="container mx-auto pt-8">
-      <h1 className="text-6xl font-extrabold leading-tight tracking-tighter">
-        Next 13 project initialized with j0rdi CLI
-      </h1>
+      <PostForm user={session.user} />
     </section>
   )
 }

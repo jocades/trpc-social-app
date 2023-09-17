@@ -18,6 +18,9 @@ export const Icons = {
   twitter: Twitter,
   linkedin: Linkedin,
   spinner: Loader2,
+  logo: (props: React.ComponentProps<'img'>) => (
+    <img src="/logo.png" alt="logo" {...props} />
+  ),
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
       <path
