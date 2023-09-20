@@ -9,11 +9,5 @@ export function PostsList() {
 
   if (isLoading) return <div>Loading...</div>
 
-  return (
-    <div>
-      {posts?.map((post) => (
-        <PostItem key={post.id} post={post} />
-      ))}
-    </div>
-  )
+  return posts?.map((post) => <PostItem key={post.id} post={post} />)
 }

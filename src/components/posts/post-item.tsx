@@ -9,10 +9,11 @@ import { PostContent } from './post-content'
 interface PostItemProps {
   post: Post & { author: User }
 }
+
 export function PostItem({ post }: PostItemProps) {
   return (
-    <div className="flex p-4 border-b">
-      <div className="flex-shrink-0">
+    <article className="flex p-4 border-b">
+      <div>
         <Avatar>
           <AvatarImage src={post.author.image!} />
           <AvatarFallback>{post.author.name![0].toUpperCase()}</AvatarFallback>
@@ -20,13 +21,13 @@ export function PostItem({ post }: PostItemProps) {
       </div>
       <div className="flex flex-col ml-4">
         <div className="flex items-center mb-2">
-          <div className="font-bold">{post.author.name}</div>
+          <p className="font-bold">{post.author.name}</p>
           <span className="text-sm text-gray-500 ml-2">
             &middot; {formatDistanceToNow(post.createdAt, { addSuffix: true })}
           </span>
         </div>
         <PostContent content={post.content} />
       </div>
-    </div>
+    </article>
   )
 }
