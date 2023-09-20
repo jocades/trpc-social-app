@@ -6,13 +6,13 @@ import { Session } from 'next-auth'
 import { api } from '@/app/_trpc/client'
 
 import { Button } from '../ui/button'
-import { Textarea } from '../ui/textarea'
 
 interface PostFormProps {
   user: Session['user']
 }
 
-function updateHeight(el: HTMLTextAreaElement) {
+function updateHeight(el?: HTMLTextAreaElement) {
+  if (!el) return
   el.style.height = '0'
   el.style.height = `${el.scrollHeight}px`
 }
@@ -28,7 +28,6 @@ export function PostForm({ user }: PostFormProps) {
   }, [])
 
   useLayoutEffect(() => {
-    if (!textAreaRef.current) return
     updateHeight(textAreaRef.current)
   }, [input])
 
