@@ -7,10 +7,10 @@ import NextAuth, {
 import GitHubProvider from 'next-auth/providers/github'
 
 import { db } from './db'
+import { redirect } from 'next/navigation'
 
 declare module 'next-auth' {
   interface Session {
-    // extend the session with custom properties
     user: {
       id: string
     } & DefaultSession['user']
@@ -36,8 +36,14 @@ const options = {
   },
 } satisfies AuthOptions
 
-export function auth() {
-  return getServerSession(options)
+export async function auth(next?: string) {
+  const session = await getServerSession(options)
+
+  if (next && !session) {
+    redirect(`/sign-in?next=${next}`)
+  } 
+
+  return session
 }
 
 const handler = NextAuth(options)

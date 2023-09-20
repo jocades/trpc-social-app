@@ -8,13 +8,7 @@ export async function createTRPCContext() {
 
   return {
     db,
-    session: {
-      ...session,
-      user: {
-        ...session?.user,
-        isAdmin: true,
-      },
-    },
+    session,
   }
 }
 

@@ -43,18 +43,10 @@ CREATE TABLE `post` (
 	`created_at` integer NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE `todo` (
-	`id` integer PRIMARY KEY NOT NULL,
-	`user_id` text,
-	`text` text NOT NULL,
-	`done` integer NOT NULL,
-	`created_at` integer NOT NULL
-);
---> statement-breakpoint
 CREATE TABLE `user` (
 	`id` text PRIMARY KEY NOT NULL,
 	`name` text,
 	`email` text NOT NULL,
-	`email_verified` integer,
+	`emailVerified` integer,
 	`image` text
 );

@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "3fd575e9-daaa-41b7-8692-7f66e1c9e113",
-  "prevId": "9c11f4b9-1d4f-4da9-9baf-32647630daec",
+  "id": "ab5c7269-35d7-429a-8a82-6eb5cdbc3071",
+  "prevId": "99e93a33-85bc-4558-a9b4-fa9ec27a5812",
   "tables": {
     "account": {
       "name": "account",
@@ -236,6 +236,36 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
+    "like": {
+      "name": "like",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "post_id": {
+          "name": "post_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "post": {
       "name": "post",
       "columns": {
@@ -312,7 +342,15 @@
           "autoincrement": false
         }
       },
-      "indexes": {},
+      "indexes": {
+        "email_idx": {
+          "name": "email_idx",
+          "columns": [
+            "email"
+          ],
+          "isUnique": true
+        }
+      },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
