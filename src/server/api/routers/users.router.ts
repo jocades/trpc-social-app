@@ -5,15 +5,9 @@ import { users } from '@/server/db/schema/user.schema'
 import { Context } from '../context'
 import { authProcedure, createTRPCRouter } from '../trpc'
 
-function findById(ctx: Context) {
-  return ctx.db.query.users.findFirst({
-    where: (users, { eq }) => eq(users.id, ctx.session.user.id!),
-  })
-}
-
 function findByIdWithPosts(ctx: Context) {
   return ctx.db.query.users.findFirst({
-    where: eq(users.id, ctx.session.user.id!),
+    where: eq(users.id, ctx.session!.user.id!),
     with: {
       posts: true,
     },
