@@ -1,9 +1,15 @@
-import { integer, primaryKey, sqliteTable, text } from 'drizzle-orm/sqlite-core'
+import {
+  integer,
+  pgTable,
+  primaryKey,
+  text,
+  timestamp,
+} from 'drizzle-orm/pg-core'
 import type { AdapterAccount } from 'next-auth/adapters'
 
 import { users } from './user.schema'
 
-export const accounts = sqliteTable(
+export const accounts = pgTable(
   'account',
   {
     userId: text('userId')
@@ -25,20 +31,20 @@ export const accounts = sqliteTable(
   })
 )
 
-export const sessions = sqliteTable('session', {
+export const sessions = pgTable('session', {
   sessionToken: text('sessionToken').notNull().primaryKey(),
   userId: text('userId')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
-  expires: integer('expires', { mode: 'timestamp_ms' }).notNull(),
+  expires: timestamp('expires', { mode: 'date' }).notNull(),
 })
 
-export const verificationTokens = sqliteTable(
+export const verificationTokens = pgTable(
   'verificationToken',
   {
     identifier: text('identifier').notNull(),
     token: text('token').notNull(),
-    expires: integer('expires', { mode: 'timestamp_ms' }).notNull(),
+    expires: timestamp('expires', { mode: 'date' }).notNull(),
   },
   (vt) => ({
     compoundKey: primaryKey(vt.identifier, vt.token),

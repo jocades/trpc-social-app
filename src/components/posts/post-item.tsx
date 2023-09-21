@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { PostContent } from './post-content'
 
 interface PostItemProps {
-  post: Post & { author: User }
+  post: Post & { author: Pick<User, 'id' | 'name' | 'image'> }
 }
 
 export function PostItem({ post }: PostItemProps) {

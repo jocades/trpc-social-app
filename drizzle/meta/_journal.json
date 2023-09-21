@@ -1,26 +1,19 @@
 {
   "version": "5",
-  "dialect": "sqlite",
+  "dialect": "pg",
   "entries": [
     {
       "idx": 0,
       "version": "5",
-      "when": 1694994572386,
-      "tag": "0000_foamy_luminals",
+      "when": 1695309585298,
+      "tag": "0000_motionless_lester",
       "breakpoints": true
     },
     {
       "idx": 1,
       "version": "5",
-      "when": 1694997395042,
-      "tag": "0001_tricky_viper",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1695155652388,
-      "tag": "0002_bright_veda",
+      "when": 1695319474360,
+      "tag": "0001_thin_unus",
       "breakpoints": true
     }
   ]

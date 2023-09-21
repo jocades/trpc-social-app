@@ -1,21 +1,17 @@
 import { relations } from 'drizzle-orm'
-import {
-  integer,
-  sqliteTable,
-  text,
-  uniqueIndex,
-} from 'drizzle-orm/sqlite-core'
+import { pgTable, text, timestamp, uniqueIndex } from 'drizzle-orm/pg-core'
 
 import { posts } from './post.schema'
 
-export const users = sqliteTable(
+export const users = pgTable(
   'user',
   {
     id: text('id').notNull().primaryKey(),
-    name: text('name'),
+    name: text('name').notNull(),
     email: text('email').notNull(),
-    emailVerified: integer('emailVerified', { mode: 'timestamp_ms' }),
+    emailVerified: timestamp('emailVerified', { mode: 'date' }),
     image: text('image'),
+    createdAt: timestamp('createdAt', { mode: 'date' }).defaultNow(),
   },
   (user) => ({
     emailIdx: uniqueIndex('email_idx').on(user.email),

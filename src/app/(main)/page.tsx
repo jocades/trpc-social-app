@@ -12,7 +12,7 @@ export default async function Home() {
   const session = await auth('/')
 
   return (
-    <section className="container mx-auto pt-8">
+    <section className="md:container-md md:mx-auto pt-8">
       <PostForm user={session!.user} />
       <PostsList />
     </section>

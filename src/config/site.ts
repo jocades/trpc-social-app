@@ -5,10 +5,6 @@ export const siteConfig = {
   description: 'Site description',
   mainNav: [
     {
-      title: 'Home',
-      href: '/',
-    },
-    {
       title: 'User',
       href: '/user',
     },

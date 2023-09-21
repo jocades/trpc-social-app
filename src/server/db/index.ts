@@ -1,9 +1,8 @@
-import { migrate } from 'drizzle-orm/better-sqlite3/migrator'
-import Database from 'better-sqlite3'
-import { drizzle } from 'drizzle-orm/better-sqlite3'
+import { sql } from '@vercel/postgres'
+import { drizzle } from 'drizzle-orm/vercel-postgres'
+import { migrate } from 'drizzle-orm/vercel-postgres/migrator'
+
 import { schema } from './schema'
 
-const sqlite = new Database('data.db')
-export const db = drizzle(sqlite, { schema })
-
+export const db = drizzle(sql, { schema })
 migrate(db, { migrationsFolder: 'drizzle' })

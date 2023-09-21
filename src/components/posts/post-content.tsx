@@ -11,11 +11,8 @@ export interface PostContentProps {
 
 export function PostContent({ content, ...props }: PostContentProps) {
   return (
-    <div
-      className={cn('group relative flex xs:max-w-md sm:max-w-lg md:max-w-2xl')}
-      {...props}
-    >
-      <div className="flex-1 space-y-2 overflow-hidden px-1">
+    <div className={cn('group relative flex md:max-w-2xl')} {...props}>
+      <div className="flex flex-1 space-y-2 overflow-hidden px-1">
         <MemoizedMarkdown
           className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
           remarkPlugins={[remarkGfm, remarkMath]}

@@ -1,1 +1,0 @@
-CREATE UNIQUE INDEX `email_idx` ON `user` (`email`);
