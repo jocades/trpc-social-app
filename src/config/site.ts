@@ -11,6 +11,6 @@ export const siteConfig = {
   ],
   links: {
     portfolio: 'https://jocades.dev',
-    github: 'https://github.com/jocades',
+    github: 'https://github.com/jocades/trpc-social-app',
   },
 }

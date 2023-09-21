@@ -1,5 +1,6 @@
 import { formatDistanceToNow } from 'date-fns'
 
+import { RouterOutput } from '@/server/api'
 import { Post } from '@/server/db/schema/post.schema'
 import { User } from '@/server/db/schema/user.schema'
 
@@ -7,7 +8,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { PostContent } from './post-content'
 
 interface PostItemProps {
-  post: Post & { author: Pick<User, 'id' | 'name' | 'image'> }
+  // post: Post & { author: Pick<User, 'id' | 'name' | 'image'> }
+  post: RouterOutput['posts']['list'][0]
 }
 
 export function PostItem({ post }: PostItemProps) {

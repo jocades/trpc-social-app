@@ -25,10 +25,10 @@ export const posts = pgTable(
     authorId: text('user_id').notNull(),
     content: text('content').notNull(),
     createdAt: timestamp('created_at', { mode: 'date' }).defaultNow().notNull(),
-  },
-  (post) => ({
-    authorIdx: uniqueIndex('author_idx').on(post.authorId),
-  })
+  }
+  // (post) => ({
+  //   authorIdx: uniqueIndex('author_idx').on(post.authorId),
+  // })
 )
 
 export const postRelations = relations(posts, ({ one, many }) => ({

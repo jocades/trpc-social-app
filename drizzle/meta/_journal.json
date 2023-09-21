@@ -15,6 +15,13 @@
       "when": 1695319474360,
       "tag": "0001_thin_unus",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1695331820378,
+      "tag": "0002_true_komodo",
+      "breakpoints": true
     }
   ]
 }
